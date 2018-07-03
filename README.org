@@ -1,0 +1,42 @@
+* About
+  This repository is just a golang reimplementation of [[https://github.com/shengxinjing/woniu-cmdb][woniu-cmdb]], which builds CRUD system from a given json configuration file.
+* How to use
+** overview
+   We just need to write json configurations like on the left side, and this project will generate APIs and pages like on the right side.
+
+   [[./scrot.png]]
+** menu configuration
+   #+BEGIN_SRC sh
+     {
+         name: --> table name in database
+         titile: --> menu title on web page
+         modal_detail: --> whether to use a modal window to show detailed infomation of a record who has hidden fields
+         data：[
+             {
+                 name: --> column name in database table
+                 title: --> table head in web page
+                 type: --> default is: input text
+                 value：
+
+                 select_type：--> data source table name
+                 toname: --> id to name
+                 hide: --> if setted to true, this column will not be shown on page
+                  
+                 option_val 
+                 option_name 
+             }
+         ]
+     }   
+   #+END_SRC
+** usage
+#+BEGIN_SRC sh
+  simple-cmdb --help
+  Usage of ./ruok:
+    -d    show debug information
+    -fd
+          forcefully recreate database tables if already exist
+    -ft
+          forcefully recreate templates if already exist
+    -p int
+          listen port (default 8080)
+#+END_SRC

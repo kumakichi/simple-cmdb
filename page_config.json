@@ -1,0 +1,67 @@
+{
+    "brand_name":"simple-cmdb",
+    "title":"simple cmdb",
+    "favicon":"/static/img/favicon.ico",
+    "menu":[
+        {
+            "name":"user",
+            "title":"User",
+            "data":[
+                {
+                    "name":"username",
+                    "title":"Username"
+                },
+                {
+                    "name":"password",
+                    "title":"Password"
+                }
+            ]
+        },
+        {
+            "name":"caninet",
+            "title":"Server Cabinet",
+            "data":[
+                {
+                    "name":"name",
+                    "title":"Cabinet Name"
+                }
+            ]
+        },
+        {
+            "name":"host",
+            "title":"Host",
+            "sub":[
+                {
+                    "name":"host_sub_demo",
+                    "title":"HostSubDemo",
+                    "modal_detail": true,
+                    "data":[
+                        {
+                            "name":"caninet",
+                            "title":"Cabinet Name",
+                            "type":"select",
+                            "select_type":"caninet"
+                        },
+                        {
+                            "name":"hostname",
+                            "title":"HostName"
+                        },{
+                            "name":"asset_no",
+                            "title":"Asset Number"
+                        },{
+                            "name":"record_date",
+                            "title":"Record Date",
+                            "type":"date"
+                        },{
+                            "name":"ups",
+                            "title":"ON/OFF",
+                            "type":"select",
+                            "hide": true,
+                            "value":{"0":"ON", "1":"OFF"}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

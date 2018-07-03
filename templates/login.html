@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+    <link href="/static/img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/vendor/flatui/css/flat-ui.min.css">
+
+</head>
+<body>
+  
+    <div class="container" style='width:970px'>
+      
+<div class="login">
+        <div class="login-screen">
+          <div class="login-icon">
+            <img src="/static/vendor/flatui/img/icons/png/Compas.png" alt="Welcome to Mail App">
+            <h4>&nbsp;&nbsp;Welcome<small></small></h4>
+          </div>
+
+          <div class="login-form">
+            <div class="form-group">
+              <input type="text" class="form-control login-field" value="" placeholder="username" id="login-name" autocomplete="off">
+              <label class="login-field-icon fui-user" for="login-name"></label>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control login-field" value="" placeholder="password" id="login-pass" autocomplete="off">
+              <label class="login-field-icon fui-lock" for="login-pass"></label>
+              <p id='login-msg' style="color:#E74C3C"></p>
+            </div>
+
+            <button id='login-btn' class="btn btn-primary btn-lg btn-block" >login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/vendor/bootstrap/js/bootstrap.js"></script>
+    <script>
+    $('#login-btn').on('click',function(e){
+      var user = $('#login-name').val()
+      var pwd = $('#login-pass').val()
+      var msg = $('#login-msg')
+      if (user&&pwd) {
+        $.post('/login',{username:user,password:pwd},function(res){
+          if (res.result==0) {
+            location.href='/'
+          }else{
+            msg.html('The username or password is incorrect. Please try again.')
+          }
+        })
+      }else{
+        msg.html('please input username and password')
+      }
+    })
+    document.getElementById('login-pass').onkeydown=keyDownSearch;
+    function keyDownSearch(e) {
+        var theEvent = e || window.event;
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+        if (code == 13) {
+            $("#login-btn").click();
+            return false;
+        }
+        return true;
+    }
+    </script>
+
+
+</body>
+</html>
