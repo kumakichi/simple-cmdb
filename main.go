@@ -13,13 +13,12 @@ import (
 )
 
 var (
-	forceDb        bool
-	forceTemplate  bool
-	debug          bool
-	ginReleaseMode bool
-	listenPort     int
-	logP           Println
-	logF           Printf
+	forceDb       bool
+	forceTemplate bool
+	debug         bool
+	listenPort    int
+	logP          Println
+	logF          Printf
 )
 
 const (
